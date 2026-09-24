@@ -1,0 +1,22 @@
+apply plugin: 'com.android.application'
+android {
+    namespace 'com.googletv.kumanda'
+    compileSdk 33
+    defaultConfig {
+        applicationId "com.googletv.kumanda"
+        minSdk 21
+        targetSdk 33
+        versionCode 6
+        versionName "6.0 3Mod PIN"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    buildTypes { debug { minifyEnabled false } }
+}
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.70'
+    implementation 'org.bouncycastle:bcpkix-jdk15on:1.70'
+}

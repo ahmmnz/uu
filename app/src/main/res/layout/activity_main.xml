@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:background="#121212">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="10dp">
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="3 BAGLANTI MODU - Hepsi Gercek Calisir" android:textColor="#FF3D00" android:textStyle="bold" android:textSize="12sp" android:gravity="center" android:padding="6dp"/>
+
+        <RadioGroup android:id="@+id/modeGroup" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="#1E1E1E" android:padding="8dp">
+            <RadioButton android:id="@+id/radioWifiAdb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1) WiFi ADB (5555) - Gelistirici Mod" android:textColor="#FFF" android:checked="true" android:textSize="11sp"/>
+            <RadioButton android:id="@+id/radioBt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2) Bluetooth SPP/HID" android:textColor="#FFF" android:textSize="11sp"/>
+            <RadioButton android:id="@+id/radioPin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3) Google TV PIN (6467) - TV'de Kod Gosterir" android:textColor="#4CAF50" android:textSize="11sp"/>
+        </RadioGroup>
+
+        <!-- WIFI ADB -->
+        <LinearLayout android:id="@+id/wifiLayout" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="#1E1E1E" android:padding="8dp" android:layout_marginTop="8dp">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="TV: Ayarlar &gt; Hakkinda &gt; Derleme 7x &gt; Gelistirici &gt; USB + Ag Hata Ayiklama AC" android:textColor="#888" android:textSize="8sp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="4dp">
+                <EditText android:id="@+id/ipInput" android:layout_width="0dp" android:layout_weight="1" android:layout_height="40dp" android:hint="192.168.1.100" android:textColor="#FFF" android:background="#2D2D2D" android:padding="8dp" android:textSize="12sp"/>
+                <Button android:id="@+id/btnWifiConnect" android:layout_width="wrap_content" android:layout_height="40dp" android:text="Baglan" android:layout_marginStart="6dp" android:textSize="10sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- BLUETOOTH -->
+        <LinearLayout android:id="@+id/btLayout" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="#1E1E1E" android:padding="8dp" android:layout_marginTop="8dp" android:visibility="gone">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <Button android:id="@+id/btnBtScan" android:layout_width="0dp" android:layout_weight="1" android:layout_height="38dp" android:text="Tara" android:textSize="10sp" android:layout_marginEnd="4dp"/>
+                <Button android:id="@+id/btnBtEnable" android:layout_width="0dp" android:layout_weight="1" android:layout_height="38dp" android:text="BT Ac" android:textSize="10sp" android:layout_marginStart="4dp"/>
+            </LinearLayout>
+            <Spinner android:id="@+id/btSpinner" android:layout_width="match_parent" android:layout_height="40dp" android:layout_marginTop="6dp" android:background="#2D2D2D"/>
+            <Button android:id="@+id/btnBtConnect" android:layout_width="match_parent" android:layout_height="42dp" android:text="Bluetooth Baglan (SPP)" android:layout_marginTop="6dp" android:backgroundTint="#2196F3" android:textSize="11sp"/>
+        </LinearLayout>
+
+        <!-- PIN PAIRING - GOOGLE TV -->
+        <LinearLayout android:id="@+id/pinLayout" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="#1E1E1E" android:padding="8dp" android:layout_marginTop="8dp" android:visibility="gone">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="TV'de kod cikacak, buraya gir - Resmi Google TV protokolu" android:textColor="#4CAF50" android:textSize="9sp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="4dp">
+                <EditText android:id="@+id/ipPinInput" android:layout_width="0dp" android:layout_weight="1" android:layout_height="40dp" android:hint="TV IP ayni" android:textColor="#FFF" android:background="#2D2D2D" android:padding="8dp" android:textSize="12sp"/>
+                <Button android:id="@+id/btnPinStart" android:layout_width="wrap_content" android:layout_height="40dp" android:text="Kodu Goster" android:layout_marginStart="6dp" android:textSize="10sp" android:backgroundTint="#4CAF50"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="6dp">
+                <EditText android:id="@+id/pinCodeInput" android:layout_width="0dp" android:layout_weight="1" android:layout_height="45dp" android:hint="TV'deki 4 haneli KOD (örn: 4D35)" android:textColor="#FFF" android:textColorHint="#888" android:background="#2D2D2D" android:padding="8dp" android:textSize="13sp" android:textStyle="bold"/>
+                <Button android:id="@+id/btnPinSend" android:layout_width="wrap_content" android:layout_height="45dp" android:text="Dogrula" android:layout_marginStart="6dp" android:backgroundTint="#FF3D00"/>
+            </LinearLayout>
+            <Button android:id="@+id/btnPinConnectRemote" android:layout_width="match_parent" android:layout_height="42dp" android:text="6466 Uzerinden Kumanda Baglan" android:layout_marginTop="6dp" android:textSize="11sp"/>
+        </LinearLayout>
+
+        <TextView android:id="@+id/statusText" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Durum: Mod sec ve baglan" android:textColor="#FF9800" android:textSize="11sp" android:padding="8dp" android:background="#2D2D2D" android:layout_marginTop="8dp"/>
+
+        <!-- KUMANDA -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center" android:layout_marginTop="12dp">
+            <Button android:id="@+id/btnPower" android:layout_width="60dp" android:layout_height="60dp" android:text="POWER" android:textSize="8sp" android:backgroundTint="#D32F2F"/>
+            <Space android:layout_width="20dp" android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btnMute" android:layout_width="60dp" android:layout_height="60dp" android:text="MUTE" android:textSize="8sp"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:layout_marginTop="12dp" android:background="#1E1E1E" android:padding="10dp">
+            <Button android:id="@+id/btnUp" android:layout_width="80dp" android:layout_height="45dp" android:text="UP"/>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
+                <Button android:id="@+id/btnLeft" android:layout_width="65dp" android:layout_height="55dp" android:text="LEFT" android:textSize="9sp"/>
+                <Button android:id="@+id/btnOk" android:layout_width="70dp" android:layout_height="55dp" android:text="OK" android:backgroundTint="#FF3D00" android:layout_marginHorizontal="8dp"/>
+                <Button android:id="@+id/btnRight" android:layout_width="65dp" android:layout_height="55dp" android:text="RIGHT" android:textSize="9sp"/>
+            </LinearLayout>
+            <Button android:id="@+id/btnDown" android:layout_width="80dp" android:layout_height="45dp" android:text="DOWN"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center" android:layout_marginTop="10dp">
+                <Button android:id="@+id/btnBack" android:layout_width="0dp" android:layout_weight="1" android:layout_height="42dp" android:text="Back" android:layout_marginEnd="4dp" android:textSize="10sp"/>
+                <Button android:id="@+id/btnHome" android:layout_width="0dp" android:layout_weight="1" android:layout_height="42dp" android:text="Home" android:layout_marginHorizontal="4dp" android:textSize="10sp"/>
+                <Button android:id="@+id/btnMenu" android:layout_width="0dp" android:layout_weight="1" android:layout_height="42dp" android:text="Menu" android:layout_marginStart="4dp" android:textSize="10sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="10dp">
+            <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:background="#1E1E1E" android:padding="6dp" android:gravity="center" android:layout_marginEnd="5dp">
+                <TextView android:id="@+id/volText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="24" android:textColor="#FF3D00" android:textSize="22sp" android:textStyle="bold"/>
+                <Button android:id="@+id/btnVolUp" android:layout_width="match_parent" android:layout_height="40dp" android:text="Vol+" android:textSize="10sp" android:layout_marginTop="4dp"/>
+                <Button android:id="@+id/btnVolDown" android:layout_width="match_parent" android:layout_height="40dp" android:text="Vol-" android:textSize="10sp" android:layout_marginTop="4dp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:background="#1E1E1E" android:padding="6dp" android:gravity="center" android:layout_marginStart="5dp">
+                <TextView android:id="@+id/chText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="7" android:textColor="#4CAF50" android:textSize="22sp" android:textStyle="bold"/>
+                <Button android:id="@+id/btnChUp" android:layout_width="match_parent" android:layout_height="40dp" android:text="Ch+" android:textSize="10sp" android:layout_marginTop="4dp"/>
+                <Button android:id="@+id/btnChDown" android:layout_width="match_parent" android:layout_height="40dp" android:text="Ch-" android:textSize="10sp" android:layout_marginTop="4dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
